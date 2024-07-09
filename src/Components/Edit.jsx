@@ -1,6 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";import { useNavigate } from "react-router-dom";
 
 const Edit = ({ id }) => {
   const navigate = useNavigate();
@@ -12,13 +11,13 @@ const Edit = ({ id }) => {
   });
   useEffect(() => {
     fetchData();
-  }, []);
-  const fetchData = async () => {
+  }, );
+  async function fetchData() {
     await axios
       .get(`https://65d582f13f1ab8c63437231c.mockapi.io/api/products/${id}`)
       .then((res) => setEditData(res.data))
       .catch((err) => console.log(err));
-  };
+  }
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditData((preData) => ({
@@ -110,6 +109,8 @@ const Edit = ({ id }) => {
     </div>
   );
 };
+
+import PropTypes from 'prop-types';
 
 Edit.propTypes = {
   id: PropTypes.string.isRequired

@@ -1,9 +1,11 @@
 
 
 import axios from "axios";
+// eslint-disable-next-line no-unused-vars
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 const Products = ({ setId }) => {
   const [products, setProducts] = useState([]);
   const [deleteData, setDeleteData] = useState([]);
@@ -46,8 +48,8 @@ const Products = ({ setId }) => {
         <tbody>
           {products.map((item, index) => {
             return (
-              <>
-                <tr key={index}>
+              <React.Fragment key={index}>
+                <tr>
                   <th scope="row">{item.id}</th>
                   <td>{item.product_id}</td>
                   <td>{item.product_name}</td>
@@ -76,7 +78,7 @@ const Products = ({ setId }) => {
                     </button>
                   </td>
                 </tr>
-              </>
+              </React.Fragment>
             );
           })}
         </tbody>
